@@ -1,49 +1,460 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datenschutzerklärung – Gedankenpflanzen</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <title>Datenschutzerklärung — Gedankenpflanzen</title>
   <style>
-    body { font-family: -apple-system, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.7; }
-    h1 { font-size: 28px; margin-bottom: 4px; }
-    h2 { font-size: 18px; margin-top: 36px; }
-    p, li { font-size: 15px; color: #333; }
-    a { color: #2D6A4F; }
-    .date { color: #888; font-size: 13px; margin-bottom: 32px; }
+    :root {
+      --bg: #FAF0E4;
+      --card: #FFFFFF;
+      --text: #1A1208;
+      --text-secondary: #5A4030;
+      --primary: #D4722A;
+      --border: rgba(180,140,80,0.30);
+      --soft-border: rgba(180,140,80,0.18);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 32px 0 8px;
+      color: var(--primary);
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 18px 0 4px;
+      color: var(--text);
+    }
+    p, li { font-size: 14px; color: var(--text-secondary); margin: 6px 0; }
+    p strong, li strong { color: var(--text); }
+    ul, ol { padding-left: 22px; margin: 6px 0; }
+    .meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+    .contact-card {
+      background: rgba(212,114,42,0.08);
+      border: 1px solid rgba(212,114,42,0.30);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 16px 0 24px;
+    }
+    .contact-card h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .contact-card p { color: var(--text); font-weight: 500; }
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--soft-border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+    }
+    .toc h3 { margin: 4px 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
+    .toc ol { padding-left: 22px; margin: 0; }
+    .toc a { color: var(--text-secondary); text-decoration: none; font-size: 13px; }
+    .toc a:hover { color: var(--primary); text-decoration: underline; }
+    .footer {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: rgba(0,0,0,0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(45,122,63,0.12);
+      color: #2D7A3F;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-right: 6px;
+    }
+    .badge-red {
+      background: rgba(168,48,48,0.12);
+      color: #A83030;
+    }
   </style>
 </head>
 <body>
-  <h1>Datenschutzerklärung</h1>
-  <p class="date">Zuletzt aktualisiert: März 2026</p>
+  <div class="container">
 
-  <p>Gedankenpflanzen ("wir", "uns") ist eine iOS-App für Achtsamkeit und mentale Gesundheit. Der Schutz deiner Daten ist uns wichtig.</p>
+    <h1>Datenschutzerklärung</h1>
+    <p class="meta">App „Gedankenpflanzen" · Version 1.0 · Stand: 01.05.2026</p>
 
-  <h2>1. Welche Daten wir erheben</h2>
-  <p>Gedankenpflanzen speichert alle Daten ausschließlich <strong>lokal auf deinem Gerät</strong> (AsyncStorage). Wir haben keinen eigenen Server und erhalten keine persönlichen Informationen von dir.</p>
-  <p>Folgende Daten werden lokal gespeichert:</p>
-  <ul>
-    <li>Fortschritt (Punkte, Streak, abgeschlossene Übungen)</li>
-    <li>Stimmungseinträge (Zahlen 1–5)</li>
-    <li>Dein Persönlichkeitstyp (lokal ausgewählt)</li>
-  </ul>
+    <div class="contact-card">
+      <h3>Verantwortlich für den Datenschutz</h3>
+      <p><strong>Raoul Zech</strong><br />
+        Toft 21<br />
+        24989 Dollerup<br />
+        Deutschland</p>
+      <p>📧 <a href="mailto:raouls.stamm@gmail.com"><strong>raouls.stamm@gmail.com</strong></a></p>
+    </div>
 
-  <h2>2. Abonnements (RevenueCat)</h2>
-  <p>Für die Verarbeitung von In-App-Käufen nutzen wir <a href="https://www.revenuecat.com/privacy">RevenueCat</a>. RevenueCat erhält anonymisierte Kaufinformationen über Apple. Es werden keine Zahlungsdaten von uns gespeichert – alle Transaktionen laufen über den Apple App Store.</p>
+    <div class="card">
+      <p>
+        Diese Datenschutzerklärung informiert dich umfassend darüber, wie deine
+        personenbezogenen Daten in der mobilen App „Gedankenpflanzen" verarbeitet
+        werden. Wir nehmen den Schutz deiner Daten sehr ernst und behandeln deine
+        Daten vertraulich sowie entsprechend der gesetzlichen Vorgaben der
+        EU-Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutz-Gesetzes
+        (BDSG). <strong>Die App ist bewusst datensparsam gestaltet</strong>:
+        Deine persönlichen Inhalte (Übungen, Notizen, Fortschritt) bleiben
+        ausschließlich auf deinem Gerät.
+      </p>
+    </div>
 
-  <h2>3. Analytik & Tracking</h2>
-  <p>Wir nutzen keine Analyse-Tools, keine Werbung und kein Tracking. Du wirst in keiner Datenbank gespeichert.</p>
+    <div class="toc">
+      <h3>Inhalt</h3>
+      <ol>
+        <li><a href="#s1">Verantwortlicher</a></li>
+        <li><a href="#s2">Geltungsbereich</a></li>
+        <li><a href="#s3">Begriffsbestimmungen</a></li>
+        <li><a href="#s4">Welche Daten verarbeiten wir und warum</a></li>
+        <li><a href="#s5">Drittanbieter-Dienste</a></li>
+        <li><a href="#s6">Rechtsgrundlagen</a></li>
+        <li><a href="#s7">Speicherdauer</a></li>
+        <li><a href="#s8">Datenübertragung in Drittländer</a></li>
+        <li><a href="#s9">Cookies und Tracking</a></li>
+        <li><a href="#s10">Datensicherheit</a></li>
+        <li><a href="#s11">Automatisierte Entscheidungen</a></li>
+        <li><a href="#s12">Deine Rechte</a></li>
+        <li><a href="#s13">Beschwerderecht</a></li>
+        <li><a href="#s14">Kinder und Jugendliche</a></li>
+        <li><a href="#s15">Hinweis zu medizinischen Inhalten</a></li>
+        <li><a href="#s16">Änderungen dieser Erklärung</a></li>
+        <li><a href="#s17">Kontakt</a></li>
+      </ol>
+    </div>
 
-  <h2>4. Drittanbieter</h2>
-  <p>Die einzige Drittanbieter-Integration ist RevenueCat für Abonnements. Weitere Informationen findest du in deren <a href="https://www.revenuecat.com/privacy">Datenschutzerklärung</a>.</p>
+    <h2 id="s1">1. Verantwortlicher im Sinne der DSGVO</h2>
+    <p>
+      Verantwortlich für die Datenverarbeitung in dieser App im Sinne von
+      Art. 4 Nr. 7 DSGVO ist:
+    </p>
+    <p>
+      <strong>Raoul Zech</strong><br />
+      Toft 21<br />
+      24989 Dollerup<br />
+      Deutschland<br />
+      E-Mail: <a href="mailto:raouls.stamm@gmail.com">raouls.stamm@gmail.com</a>
+    </p>
+    <p>
+      Ein Datenschutzbeauftragter ist nach § 38 BDSG nicht erforderlich, da
+      keine umfangreiche, regelmäßige und systematische Überwachung
+      betroffener Personen stattfindet.
+    </p>
 
-  <h2>5. Kinder</h2>
-  <p>Die App richtet sich nicht an Kinder unter 13 Jahren. Wir erheben wissentlich keine Daten von Kindern.</p>
+    <h2 id="s2">2. Geltungsbereich</h2>
+    <p>
+      Diese Datenschutzerklärung gilt für die mobile App „Gedankenpflanzen"
+      (im Folgenden „App") für iOS und Android, betrieben von dem oben
+      genannten Verantwortlichen. Sie gilt nicht für externe Dienste, auf die
+      aus der App heraus verlinkt wird (z.B. Telefonseelsorge oder Apple/Google).
+    </p>
 
-  <h2>6. Änderungen</h2>
-  <p>Sollte sich diese Datenschutzerklärung ändern, aktualisieren wir das Datum oben auf dieser Seite.</p>
+    <h2 id="s3">3. Begriffsbestimmungen</h2>
+    <p>
+      Diese Datenschutzerklärung verwendet die Begriffe der DSGVO. Insbesondere:
+    </p>
+    <ul>
+      <li><strong>Personenbezogene Daten</strong>: Alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen (Art. 4 Nr. 1 DSGVO)</li>
+      <li><strong>Verarbeitung</strong>: Jeder Vorgang im Zusammenhang mit personenbezogenen Daten (Art. 4 Nr. 2 DSGVO)</li>
+      <li><strong>Verantwortlicher</strong>: Die Person, die über die Zwecke und Mittel der Verarbeitung entscheidet (Art. 4 Nr. 7 DSGVO)</li>
+      <li><strong>Auftragsverarbeiter</strong>: Eine Person, die personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet (Art. 4 Nr. 8 DSGVO)</li>
+    </ul>
 
-  <h2>7. Kontakt</h2>
-  <p>Bei Fragen zum Datenschutz erreichst du uns unter: <a href="mailto:DEINE@EMAIL.de">DEINE@EMAIL.de</a></p>
+    <h2 id="s4">4. Welche Daten verarbeiten wir und warum</h2>
+
+    <h3>4.1 Lokale Daten auf deinem Gerät</h3>
+    <p>
+      <span class="badge">Lokal</span>
+      Die App speichert folgende Inhalte ausschließlich lokal auf deinem
+      Gerät (auf iOS via UserDefaults / AsyncStorage, auf Android via
+      SharedPreferences). Diese Daten werden zu keinem Zeitpunkt an unsere
+      Server oder an Dritte übertragen und sind für uns weder einsehbar noch
+      zugreifbar:
+    </p>
+    <ul>
+      <li>Dein Vorname und der von dir gewählte Name für dein „Gehirn"</li>
+      <li>Dein Persönlichkeits-Typ aus dem Onboarding-Quiz</li>
+      <li>Deine ausgewählten täglichen Übungen</li>
+      <li>Dein Fortschritt: Streak, gesammelte Punkte, Übungs-Historie</li>
+      <li>Eingaben in Journal-Übungen (Texte, die du in der App schreibst)</li>
+      <li>Deine Mood-/Stimmungs-Einträge</li>
+      <li>App-bezogene Einstellungen</li>
+    </ul>
+    <p>
+      <strong>Zweck</strong>: Bereitstellung der App-Funktionen und Personalisierung deines Erlebnisses.<br />
+      <strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).<br />
+      <strong>Löschung</strong>: Wenn du die App deinstallierst oder die App-Daten in den Geräte-Einstellungen löschst, werden alle diese Daten unwiderruflich gelöscht.
+    </p>
+
+    <h3>4.2 Subscription- und Kaufdaten</h3>
+    <p>
+      <span class="badge">Auftragsverarbeiter</span>
+      Wenn du ein Abonnement abschließt, werden zur Verwaltung der Abos
+      folgende Daten verarbeitet:
+    </p>
+    <ul>
+      <li>Eine pseudonyme Nutzer-ID (von RevenueCat erzeugt, kein Name oder Email)</li>
+      <li>Status deines Abonnements (aktiv, abgelaufen, in Probezeit)</li>
+      <li>Gerätemodell und Betriebssystem-Version (für Stabilität)</li>
+      <li>Kaufdatum und gewählter Tarif</li>
+    </ul>
+    <p>
+      <strong>Zweck</strong>: Verifikation gültiger Abonnements, Verwaltung von Käufen und Wiederherstellungen.<br />
+      <strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+    </p>
+
+    <h3>4.3 App-Store-Daten</h3>
+    <p>
+      Die Bezahlung selbst erfolgt über deinen App-Store-Account
+      (Apple App Store oder Google Play). Die Verarbeitung deiner
+      Zahlungsdaten erfolgt ausschließlich durch Apple bzw. Google. Wir haben
+      <strong>keinen Zugriff</strong> auf deine Zahlungsdaten oder dein
+      vollständiges Apple-/Google-Konto.
+    </p>
+
+    <h2 id="s5">5. Drittanbieter-Dienste</h2>
+
+    <h3>5.1 RevenueCat</h3>
+    <p>
+      Wir nutzen für die Subscription-Verwaltung den Dienst
+      <strong>RevenueCat</strong>:
+    </p>
+    <p>
+      RevenueCat, Inc.<br />
+      845 Market Street, Suite 450<br />
+      San Francisco, CA 94103, USA
+    </p>
+    <p>
+      RevenueCat verarbeitet die unter Punkt 4.2 genannten Daten als
+      Auftragsverarbeiter im Sinne von Art. 28 DSGVO. Es besteht ein
+      entsprechender Auftragsverarbeitungs-Vertrag.
+    </p>
+    <p>
+      Datenschutzerklärung von RevenueCat:
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">
+        https://www.revenuecat.com/privacy
+      </a>
+    </p>
+
+    <h3>5.2 Apple App Store</h3>
+    <p>
+      Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA, verarbeitet
+      Daten im Rahmen des App-Store-Kaufprozesses unabhängig von uns.
+    </p>
+    <p>
+      Datenschutzerklärung:
+      <a href="https://www.apple.com/legal/privacy/de-ww/" target="_blank" rel="noopener">
+        https://www.apple.com/legal/privacy/de-ww/
+      </a>
+    </p>
+
+    <h3>5.3 Google Play</h3>
+    <p>
+      Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland,
+      verarbeitet Daten im Rahmen des Google-Play-Kaufprozesses unabhängig
+      von uns.
+    </p>
+    <p>
+      Datenschutzerklärung:
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+        https://policies.google.com/privacy
+      </a>
+    </p>
+
+    <h2 id="s6">6. Rechtsgrundlagen der Verarbeitung</h2>
+    <p>
+      Wir verarbeiten personenbezogene Daten ausschließlich auf folgenden
+      Rechtsgrundlagen:
+    </p>
+    <ul>
+      <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Vertragserfüllung) — für die Bereitstellung der App und Verwaltung von Abonnements</li>
+      <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> (rechtliche Verpflichtung) — für gesetzlich vorgeschriebene Aufbewahrungspflichten</li>
+      <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse) — für die Sicherheit der App und Schutz vor Missbrauch</li>
+    </ul>
+
+    <h2 id="s7">7. Speicherdauer</h2>
+    <p>
+      Wir speichern personenbezogene Daten nur so lange, wie sie für die
+      genannten Zwecke erforderlich sind:
+    </p>
+    <ul>
+      <li><strong>Lokale App-Daten</strong>: Bis zur Deinstallation der App</li>
+      <li><strong>Subscription-Daten</strong>: Während der Laufzeit des Abos plus gesetzliche Aufbewahrungsfristen (i.d.R. 10 Jahre nach § 147 AO für steuerliche Zwecke)</li>
+      <li><strong>Anfrage-Korrespondenz per E-Mail</strong>: Bis zur abschließenden Bearbeitung deiner Anfrage, danach Löschung sofern keine gesetzlichen Aufbewahrungspflichten bestehen</li>
+    </ul>
+
+    <h2 id="s8">8. Datenübertragung in Drittländer</h2>
+    <p>
+      RevenueCat hat seinen Hauptsitz in den USA. Eine Datenübertragung in
+      die USA findet daher statt. RevenueCat ist nach dem
+      <strong>EU-U.S. Data Privacy Framework</strong> zertifiziert, sodass
+      ein angemessenes Datenschutz-Niveau im Sinne von Art. 45 DSGVO
+      gewährleistet ist. Zusätzlich kommen
+      <strong>EU-Standardvertragsklauseln</strong> nach Art. 46 Abs. 2 lit. c
+      DSGVO zur Anwendung.
+    </p>
+
+    <h2 id="s9">9. Cookies und Tracking-Technologien</h2>
+    <p>
+      <span class="badge badge-red">Wir nutzen keine</span>
+      Diese App nutzt <strong>keine Cookies</strong>, keine
+      Web-Analyse-Tools, keine Tracking-Pixel und kein Werbenetzwerk-Tracking.
+      Wir setzen kein Google Analytics, kein Facebook-SDK, kein Firebase
+      Analytics, keine Werbenetzwerke und keine sonstigen Drittanbieter-
+      Tracker ein.
+    </p>
+
+    <h2 id="s10">10. Datensicherheit</h2>
+    <p>
+      Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um
+      deine Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust,
+      Zerstörung oder den unbefugten Zugriff zu schützen:
+    </p>
+    <ul>
+      <li>TLS/HTTPS-Verschlüsselung für alle Datenübertragungen zu Auftragsverarbeitern</li>
+      <li>Lokale Daten werden im sicheren Speicherbereich des Betriebssystems abgelegt</li>
+      <li>Subscription-Daten werden ausschließlich verschlüsselt zwischen App und RevenueCat ausgetauscht</li>
+      <li>Wir nutzen ausschließlich anerkannte Auftragsverarbeiter mit eigenen Sicherheits-Zertifizierungen</li>
+    </ul>
+
+    <h2 id="s11">11. Automatisierte Entscheidungen / Profiling</h2>
+    <p>
+      <span class="badge badge-red">Wir nutzen keine</span>
+      In der App findet <strong>keine automatisierte Entscheidungsfindung</strong>
+      einschließlich Profiling im Sinne von Art. 22 DSGVO statt. Die
+      Auswertung deines Onboarding-Quiz erfolgt vollständig auf deinem Gerät
+      und wird nicht an uns übermittelt.
+    </p>
+
+    <h2 id="s12">12. Deine Rechte als Betroffener</h2>
+    <p>
+      Du hast nach DSGVO folgende Rechte:
+    </p>
+    <ul>
+      <li><strong>Auskunftsrecht</strong> nach Art. 15 DSGVO</li>
+      <li><strong>Recht auf Berichtigung</strong> nach Art. 16 DSGVO</li>
+      <li><strong>Recht auf Löschung</strong> („Recht auf Vergessenwerden") nach Art. 17 DSGVO</li>
+      <li><strong>Recht auf Einschränkung der Verarbeitung</strong> nach Art. 18 DSGVO</li>
+      <li><strong>Recht auf Datenübertragbarkeit</strong> nach Art. 20 DSGVO</li>
+      <li><strong>Widerspruchsrecht</strong> nach Art. 21 DSGVO</li>
+      <li><strong>Recht auf Widerruf einer Einwilligung</strong> nach Art. 7 Abs. 3 DSGVO</li>
+    </ul>
+    <p>
+      Zur Ausübung dieser Rechte schreib uns bitte eine E-Mail an
+      <a href="mailto:raouls.stamm@gmail.com"><strong>raouls.stamm@gmail.com</strong></a>.
+      Wir antworten innerhalb der gesetzlich vorgegebenen Frist von einem
+      Monat (Art. 12 Abs. 3 DSGVO).
+    </p>
+
+    <h2 id="s13">13. Beschwerderecht bei Aufsichtsbehörde</h2>
+    <p>
+      Du hast nach Art. 77 DSGVO das Recht, dich bei einer Datenschutz-
+      Aufsichtsbehörde zu beschweren. In Deutschland ist die zuständige
+      Aufsichtsbehörde die Landes-Datenschutzbehörde des Bundeslandes, in
+      dem du deinen Wohnsitz hast.
+    </p>
+    <p>
+      Für Schleswig-Holstein zuständig:<br />
+      <strong>Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein</strong><br />
+      Holstenstraße 98, 24103 Kiel<br />
+      <a href="https://www.datenschutzzentrum.de" target="_blank" rel="noopener">www.datenschutzzentrum.de</a>
+    </p>
+
+    <h2 id="s14">14. Kinder und Jugendliche</h2>
+    <p>
+      Die App richtet sich an Personen ab 16 Jahren. Wir verarbeiten nicht
+      wissentlich personenbezogene Daten von Personen unter 16 Jahren ohne
+      Einwilligung der Erziehungsberechtigten. Wenn dir bekannt wird, dass
+      ein Kind Daten an uns übermittelt hat, kontaktiere uns bitte, damit wir
+      entsprechende Daten umgehend löschen können.
+    </p>
+
+    <h2 id="s15">15. Hinweis zu medizinischen Inhalten</h2>
+    <p>
+      <strong>„Gedankenpflanzen" ist eine Wellness-App und ersetzt keine
+      medizinische, psychologische oder psychotherapeutische Behandlung.</strong>
+      Die App ist kein Medizinprodukt und stellt keine Diagnose. In akuten
+      psychischen Krisen wende dich bitte an die Telefonseelsorge unter
+      <a href="tel:08001110111">0800 / 111 0 111</a> (kostenlos, anonym, 24/7)
+      oder bei akuter Lebensgefahr an den Notruf <strong>112</strong>.
+    </p>
+
+    <h2 id="s16">16. Änderungen dieser Datenschutzerklärung</h2>
+    <p>
+      Wir behalten uns vor, diese Datenschutzerklärung anzupassen, wenn sich
+      technische oder rechtliche Gegebenheiten ändern. Die jeweils aktuelle
+      Version ist unter dieser URL verfügbar. Über wesentliche Änderungen
+      informieren wir dich rechtzeitig in der App. Bitte beachte den oben
+      angegebenen Stand.
+    </p>
+
+    <h2 id="s17">17. Kontakt</h2>
+    <p>
+      Bei Fragen zum Datenschutz, Auskunftsanfragen, Löschungsanträgen oder
+      zur Ausübung deiner anderen Rechte wende dich bitte an:
+    </p>
+    <p>
+      <strong>Raoul Zech</strong><br />
+      Toft 21, 24989 Dollerup, Deutschland<br />
+      📧 <a href="mailto:raouls.stamm@gmail.com"><strong>raouls.stamm@gmail.com</strong></a>
+    </p>
+    <p>
+      Wir bemühen uns, alle Anfragen innerhalb von 30 Tagen zu beantworten.
+    </p>
+
+    <div class="footer">
+      © 2026 Raoul Zech · Gedankenpflanzen<br />
+      Diese Datenschutzerklärung wurde zuletzt aktualisiert: 01.05.2026
+    </div>
+
+  </div>
 </body>
 </html>
+
