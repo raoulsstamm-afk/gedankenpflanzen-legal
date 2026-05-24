@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gedankenpflanzen · Raoul Stamm</title>
+<title>Raoul Stamm · Nervensystem neu verdrahten</title>
 <meta name="description" content="Reguliere dein Nervensystem in 3 Minuten täglich.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,36 +17,33 @@
     flex-direction: column;
     align-items: center;
   }
-  .hub {
-    width: 100%;
-    max-width: 380px;
-    text-align: center;
+  .hub { width: 100%; max-width: 380px; text-align: center; }
+  .brand-icon {
+    width: 76px; height: 76px; border-radius: 18px;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 22px rgba(26,18,8,0.18);
+    display: block;
   }
   h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: 0.2px;
+    font-size: 26px; font-weight: 700;
+    margin-bottom: 36px; letter-spacing: 0.2px;
+    line-height: 1.3;
   }
-  .tagline {
-    font-size: 14px;
-    color: rgba(26,18,8,0.65);
-    margin-bottom: 36px;
-    line-height: 1.5;
+  h1 .smiley {
+    display: inline-block;
+    margin-left: 4px;
+    transform: rotate(8deg);
+    color: #4A7035;
   }
   .links { display: flex; flex-direction: column; gap: 12px; }
   .link {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: rgba(255,255,255,0.92);
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.96);
     border: 2px solid #1A1208;
     border-radius: 16px;
-    padding: 18px 20px;
+    padding: 14px 18px;
     text-decoration: none;
-    color: #1A1208;
-    font-size: 16px;
-    font-weight: 600;
+    color: #1A1208; font-size: 16px; font-weight: 600;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     box-shadow: 0 4px 12px rgba(26,18,8,0.10);
   }
@@ -54,26 +51,39 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(26,18,8,0.18);
   }
-  .icon { font-size: 22px; width: 26px; text-align: center; }
+  .icon-box {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .icon-box.app    { padding: 0; }
+  .icon-box.book   { background: #F8E9C8; }
+  .icon-box.insta  { background: linear-gradient(135deg, #FFD43B 0%, #FA7E1E 25%, #D62976 50%, #962FBF 75%, #4F5BD5 100%); }
+  .icon-box.mail   { background: #1A1208; }
+  .icon-box svg { width: 24px; height: 24px; }
+  .icon-box.app img { width: 100%; height: 100%; object-fit: cover; }
   .sub { font-size: 12px; color: rgba(26,18,8,0.55); font-weight: 400; margin-top: 2px; }
   .link-content { flex: 1; text-align: left; }
   footer {
-    margin-top: 48px;
-    font-size: 11px;
-    color: rgba(26,18,8,0.45);
-    text-align: center;
+    margin-top: 48px; font-size: 11px;
+    color: rgba(26,18,8,0.45); text-align: center;
   }
   footer a { color: inherit; }
 </style>
 </head>
 <body>
   <main class="hub">
-    <h1>Gedankenpflanzen</h1>
-    <p class="tagline">Reguliere dein Nervensystem<br>in 3 Minuten täglich.</p>
+    <img src="app-icon.png" alt="Gedankenpflanzen" class="brand-icon">
+    <h1>Lass uns dein Nervensystem<br>neu verdrahten <span class="smiley">:)</span></h1>
 
     <div class="links">
+
       <a class="link" id="app-link" href="https://apps.apple.com/de/app/id6761543902">
-        <span class="icon">🌱</span>
+        <span class="icon-box app">
+          <img src="app-icon.png" alt="">
+        </span>
         <span class="link-content">
           Gedankenpflanzen-App laden
           <div class="sub">7 Tage kostenlos testen</div>
@@ -81,28 +91,45 @@
       </a>
 
       <a class="link" href="https://www.amazon.de/dp/B0GLXYWT6H" target="_blank" rel="noopener">
-        <span class="icon">📓</span>
+        <span class="icon-box book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8B5A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </span>
         <span class="link-content">
           Scheiß-Drauf-Tagebuch
           <div class="sub">Die 90-Tage-Herausforderung</div>
         </span>
       </a>
 
-      <a class="link" href="https://instagram.com/raoulsstamm" target="_blank" rel="noopener">
-        <span class="icon">📷</span>
+      <a class="link" href="https://instagram.com/raoul.psychologie" target="_blank" rel="noopener">
+        <span class="icon-box insta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </span>
         <span class="link-content">
           Instagram
-          <div class="sub">@raoulsstamm</div>
+          <div class="sub">@raoul.psychologie</div>
         </span>
       </a>
 
-      <a class="link" href="mailto:raoulzech1998@gmail.com">
-        <span class="icon">✉️</span>
+      <a class="link" href="mailto:raouls.stamm@gmail.com">
+        <span class="icon-box mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </span>
         <span class="link-content">
           Kontakt
           <div class="sub">Schick mir eine Nachricht</div>
         </span>
       </a>
+
     </div>
 
     <footer>
@@ -116,13 +143,9 @@
       var APP_STORE = 'https://apps.apple.com/de/app/id6761543902';
       var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app';
       var link = document.getElementById('app-link');
-      if (/android/i.test(ua)) {
-        link.href = PLAY_STORE;
-      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-        link.href = APP_STORE;
-      } else {
-        link.href = APP_STORE;
-      }
+      if (/android/i.test(ua)) link.href = PLAY_STORE;
+      else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) link.href = APP_STORE;
+      else link.href = APP_STORE;
     })();
   </script>
 </body>
