@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gedankenpflanzen wird geladen…</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: linear-gradient(180deg, #EDF4E6, #BEDAB0);
+    color: #1A1208; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0; padding: 24px; text-align: center;
+  }
+  .box { max-width: 360px; }
+  h1 { font-size: 22px; margin: 0 0 10px; }
+  p { font-size: 14px; color: rgba(26,18,8,0.65); margin: 0 0 18px; }
+  a { display: inline-block; margin: 6px;
+      background: #1A1208; color: #fff;
+      padding: 12px 20px; border-radius: 14px;
+      text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="box" id="fallback">
+    <h1>Gedankenpflanzen</h1>
+    <p>Du wirst gleich weitergeleitet …</p>
+    <a href="https://apps.apple.com/de/app/id6761543902">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app">Play Store</a>
+  </div>
+  <script>
+    (function() {
+      var ua = navigator.userAgent || '';
+      if (/android/i.test(ua)) {
+        location.replace('https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app');
+      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        location.replace('https://apps.apple.com/de/app/id6761543902');
+      }
+      // Desktop: zeigt die Fallback-Buttons
+    })();
+  </script>
+</body>
+</html>
