@@ -15,10 +15,18 @@
     justify-content: center; padding: 32px 20px; text-align: center;
   }
   .box { max-width: 380px; width: 100%; }
+  .app-icon {
+    width: 86px; height: 86px;
+    margin: 0 auto 18px;
+    display: block;
+    box-shadow: 0 10px 26px rgba(26,18,8,0.20);
+    border-radius: 19px;
+  }
   h1 { font-size: 24px; margin: 0 0 8px; }
   p  { font-size: 14px; color: rgba(26,18,8,0.65); margin: 0 0 22px; line-height: 1.5; }
   .btn {
-    display: block; margin: 10px 0;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin: 10px 0;
     background: #1A1208; color: #fff;
     padding: 18px 22px; border-radius: 14px;
     text-decoration: none; font-weight: 700; font-size: 17px;
@@ -32,11 +40,42 @@
   }
   .hint strong { color: #D4722A; }
   .hidden { display: none !important; }
-  .small { font-size: 12px; color: rgba(26,18,8,0.55); margin-top: 16px; }
+
+  .divider {
+    display: flex; align-items: center; gap: 10px;
+    margin: 28px 0 14px;
+    font-size: 11px; color: rgba(26,18,8,0.40);
+    text-transform: uppercase; letter-spacing: 1.2px;
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px; background: rgba(26,18,8,0.18);
+  }
+
+  .secondary-link {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(26,18,8,0.18);
+    border-radius: 14px;
+    padding: 12px 14px;
+    text-decoration: none; color: #1A1208;
+    text-align: left;
+  }
+  .secondary-link .ic {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: #232F3E;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .secondary-link .label { font-weight: 700; font-size: 14px; line-height: 1.3; }
+  .secondary-link .sub { font-size: 12px; color: rgba(26,18,8,0.55); margin-top: 2px; }
+
+  .small { font-size: 12px; color: rgba(26,18,8,0.55); margin-top: 22px; }
+  .small a { color: inherit; }
 </style>
 </head>
 <body>
   <div class="box">
+    <img src="app-icon.png" alt="Gedankenpflanzen" class="app-icon">
     <h1>Gedankenpflanzen</h1>
     <p>Reguliere dein Nervensystem in 3 Minuten täglich.</p>
 
@@ -48,6 +87,21 @@
 
     <a class="btn" id="ios-btn" href="#" onclick="return openIOS()">📱 Im App Store öffnen</a>
     <a class="btn alt" id="android-btn" href="#" onclick="return openAndroid()">🤖 Im Play Store öffnen</a>
+
+    <div class="divider">Auch interessant</div>
+
+    <a class="secondary-link" href="https://www.amazon.de/dp/B0GLXYWT6H" target="_blank" rel="noopener">
+      <span class="ic">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+          <path d="M5 18 Q16 26 27 18" stroke="#FF9900" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M23.5 16 L27 18 L24 21.5" stroke="#FF9900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </span>
+      <div>
+        <div class="label">Scheiß-Drauf-Tagebuch</div>
+        <div class="sub">Die 90-Tage-Herausforderung auf Amazon</div>
+      </div>
+    </a>
 
     <p class="small">Hilfe? Schreib mir auf Instagram <a href="https://instagram.com/raoul.psychologie">@raoul.psychologie</a></p>
   </div>
@@ -70,29 +124,25 @@
     var AND_HTTPS   = 'https://play.google.com/store/apps/details?id=' + ANDROID_PKG;
 
     function openIOS() {
-      // 1. Versuch URL-Scheme (umgeht TikTok-WebView-Filter oft)
       window.location.href = IOS_SCHEME;
-      // 2. Fallback nach 1.5s auf https-URL
       setTimeout(function() { window.location.href = IOS_HTTPS; }, 1500);
       return false;
     }
-
     function openAndroid() {
       window.location.href = AND_SCHEME;
       setTimeout(function() { window.location.href = AND_HTTPS; }, 1500);
       return false;
     }
 
-    // UI: passende Buttons zeigen + Hint bei In-App-Browser
     if (isIOS)     document.getElementById('android-btn').classList.add('hidden');
     if (isAndroid) document.getElementById('ios-btn').classList.add('hidden');
     if (isInApp)   document.getElementById('inapp-hint').classList.remove('hidden');
 
-    // Auto-Redirect — nur ausserhalb von In-App-Browsern, dort wuerde es eh blockiert
     if (!isInApp) {
       if (isIOS)     setTimeout(openIOS, 350);
       else if (isAndroid) setTimeout(openAndroid, 350);
     }
   </script>
 </body>
+</html>
 </html>
