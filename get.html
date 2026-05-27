@@ -4,40 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gedankenpflanzen wird geladen…</title>
+<meta name="apple-itunes-app" content="app-id=6761543902">
 <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    background: linear-gradient(180deg, #EDF4E6, #BEDAB0);
-    color: #1A1208; min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0; padding: 24px; text-align: center;
+    background: linear-gradient(180deg, #EDF4E6, #BEDAB0 60%, #6E9658);
+    color: #1A1208; min-height: 100vh; margin: 0;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 32px 20px; text-align: center;
   }
-  .box { max-width: 360px; }
-  h1 { font-size: 22px; margin: 0 0 10px; }
-  p { font-size: 14px; color: rgba(26,18,8,0.65); margin: 0 0 18px; }
-  a { display: inline-block; margin: 6px;
-      background: #1A1208; color: #fff;
-      padding: 12px 20px; border-radius: 14px;
-      text-decoration: none; font-weight: 600; }
+  .box { max-width: 380px; width: 100%; }
+  h1 { font-size: 24px; margin: 0 0 8px; }
+  p  { font-size: 14px; color: rgba(26,18,8,0.65); margin: 0 0 22px; line-height: 1.5; }
+  .btn {
+    display: block; margin: 10px 0;
+    background: #1A1208; color: #fff;
+    padding: 18px 22px; border-radius: 14px;
+    text-decoration: none; font-weight: 700; font-size: 17px;
+    box-shadow: 0 6px 18px rgba(26,18,8,0.18);
+  }
+  .btn.alt { background: rgba(255,255,255,0.92); color: #1A1208; border: 2px solid #1A1208; }
+  .hint {
+    background: rgba(255,255,255,0.92); border: 2px solid #D4722A;
+    border-radius: 12px; padding: 14px 16px; margin-bottom: 18px;
+    font-size: 13px; line-height: 1.55; text-align: left;
+  }
+  .hint strong { color: #D4722A; }
+  .hidden { display: none !important; }
+  .small { font-size: 12px; color: rgba(26,18,8,0.55); margin-top: 16px; }
 </style>
 </head>
 <body>
-  <div class="box" id="fallback">
+  <div class="box">
     <h1>Gedankenpflanzen</h1>
-    <p>Du wirst gleich weitergeleitet …</p>
-    <a href="https://apps.apple.com/de/app/id6761543902">App Store</a>
-    <a href="https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app">Play Store</a>
+    <p>Reguliere dein Nervensystem in 3 Minuten täglich.</p>
+
+    <div id="inapp-hint" class="hint hidden">
+      <strong>Hinweis:</strong> Du bist gerade in einem In-App-Browser.
+      Falls die Buttons nicht funktionieren: tippe oben rechts auf die drei Punkte
+      und wähle <strong>„Im Browser öffnen"</strong>.
+    </div>
+
+    <a class="btn" id="ios-btn" href="#" onclick="return openIOS()">📱 Im App Store öffnen</a>
+    <a class="btn alt" id="android-btn" href="#" onclick="return openAndroid()">🤖 Im Play Store öffnen</a>
+
+    <p class="small">Hilfe? Schreib mir auf Instagram <a href="https://instagram.com/raoul.psychologie">@raoul.psychologie</a></p>
   </div>
+
   <script>
-    (function() {
-      var ua = navigator.userAgent || '';
-      if (/android/i.test(ua)) {
-        location.replace('https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app');
-      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-        location.replace('https://apps.apple.com/de/app/id6761543902');
-      }
-      // Desktop: zeigt die Fallback-Buttons
-    })();
+    var APP_STORE_ID = '6761543902';
+    var ANDROID_PKG  = 'com.gedankenpflanzen.app';
+
+    var ua = navigator.userAgent || '';
+    var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    var isAndroid = /android/i.test(ua);
+    var isTikTok = /BytedanceWebview|TikTok|musical_ly|Bytedance/i.test(ua);
+    var isInsta = /Instagram/i.test(ua);
+    var isFb = /FBAN|FBAV/i.test(ua);
+    var isInApp = isTikTok || isInsta || isFb;
+
+    var IOS_SCHEME  = 'itms-apps://itunes.apple.com/de/app/id' + APP_STORE_ID;
+    var IOS_HTTPS   = 'https://apps.apple.com/de/app/id' + APP_STORE_ID;
+    var AND_SCHEME  = 'market://details?id=' + ANDROID_PKG;
+    var AND_HTTPS   = 'https://play.google.com/store/apps/details?id=' + ANDROID_PKG;
+
+    function openIOS() {
+      // 1. Versuch URL-Scheme (umgeht TikTok-WebView-Filter oft)
+      window.location.href = IOS_SCHEME;
+      // 2. Fallback nach 1.5s auf https-URL
+      setTimeout(function() { window.location.href = IOS_HTTPS; }, 1500);
+      return false;
+    }
+
+    function openAndroid() {
+      window.location.href = AND_SCHEME;
+      setTimeout(function() { window.location.href = AND_HTTPS; }, 1500);
+      return false;
+    }
+
+    // UI: passende Buttons zeigen + Hint bei In-App-Browser
+    if (isIOS)     document.getElementById('android-btn').classList.add('hidden');
+    if (isAndroid) document.getElementById('ios-btn').classList.add('hidden');
+    if (isInApp)   document.getElementById('inapp-hint').classList.remove('hidden');
+
+    // Auto-Redirect — nur ausserhalb von In-App-Browsern, dort wuerde es eh blockiert
+    if (!isInApp) {
+      if (isIOS)     setTimeout(openIOS, 350);
+      else if (isAndroid) setTimeout(openAndroid, 350);
+    }
   </script>
 </body>
 </html>
