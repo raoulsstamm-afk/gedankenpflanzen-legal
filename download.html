@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gedankenpflanzen herunterladen</title>
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #FAF0E4; }
+    .box { text-align: center; padding: 32px; }
+    h1 { font-size: 1.4rem; color: #1A1208; margin-bottom: 8px; }
+    p { color: #7A5A38; margin-bottom: 24px; }
+    a { display: inline-block; background: #1A1A1A; color: #fff; padding: 14px 28px; border-radius: 12px; text-decoration: none; margin: 6px; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Gedankenpflanzen</h1>
+    <p>Weiterleitung zur App...</p>
+    <a href="https://apps.apple.com/app/id6761543902">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app">Play Store</a>
+  </div>
+  <script>
+    var ua = navigator.userAgent;
+    if (/android/i.test(ua)) {
+      window.location.replace('https://play.google.com/store/apps/details?id=com.gedankenpflanzen.app');
+    } else if (/iPhone|iPad|iPod/.test(ua)) {
+      window.location.replace('https://apps.apple.com/app/id6761543902');
+    }
+  </script>
+</body>
+</html>
